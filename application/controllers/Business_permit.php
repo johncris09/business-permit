@@ -29,6 +29,7 @@ class Business_permit extends CI_Controller {
     public function insert()
     {
         $data = array(
+			'sp_no' => $this->input->post('sp_no') ,
 			'classification' => $this->input->post('classification') ,
 			'business' => trim($this->input->post('business')),
 			'owner' => trim($this->input->post('owner')),
@@ -128,6 +129,14 @@ class Business_permit extends CI_Controller {
 
 		echo json_encode($data);
 	}
+
+	function get_latest_sp_no()
+    {
+        $sp_no =  $this->business_permit_model->get_latest_sp_no(); 
+		echo json_encode($sp_no + 1);
+    }
+
+
 		
 }
          

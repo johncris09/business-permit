@@ -95,6 +95,19 @@ $(document).ready(function() {
                 $("#create-new-business-permit-form")[0].reset()
                 $('select[name="classification"]').focus()
 
+                // get the latest sp no
+                $.ajax({
+                  url: BASE_URL + "business_permit/get_latest_sp_no",
+                  method: "post",
+                  dataType: "json",
+                  success: function (data) {  
+                    console.info(data) 
+                    $('#sp_no').html(data)
+                    $('input[name="sp_no"]').val(data)
+                  }, 
+                });
+
+
                 table.ajax.reload();
                 
             });

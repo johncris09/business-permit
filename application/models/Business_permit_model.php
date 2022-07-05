@@ -37,6 +37,14 @@ class Business_permit_model extends CI_Model
         $this->db->where($data);
         return $this->db->get($this->table)->result_array()[0];
     } 
+
+    public function get_latest_sp_no()
+    {
+        return $this->db 
+            ->order_by('id', 'desc')
+			->get($this->table)
+            ->result_array()[0]['sp_no'];
+    }
  
  
     public function update($data)
