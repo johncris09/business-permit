@@ -182,6 +182,7 @@
                       <thead> 
                         <tr>
                           <th>#</th>
+                          <th>SP #</th> 
                           <th>BUSINESS PERMIT CLASSIFICATION</th> 
                            <th>BUSINESS</th>
                            <th>OWNER</th>
