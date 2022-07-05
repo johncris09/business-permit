@@ -64,6 +64,18 @@ class Business_permit extends CI_Controller {
 
 		echo json_encode($data);
 	}
+
+	
+	public function view($id)
+	{ 
+
+		$data = array(
+			"id" => $id,
+		); 
+		$data['info'] = $this->business_permit_model->get_business_permit($data);
+        $data['page_title'] = "Business Permit"; 
+		$this->load->view('admin/print_preview', $data);   
+	}
 	
 	public function update($id)
 	{ 

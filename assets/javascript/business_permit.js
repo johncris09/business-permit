@@ -21,6 +21,7 @@ $(document).ready(function() {
           return meta.row + meta.settings._iDisplayStart + 1;
         }
       }, 
+      { data: 'sp_no'  }, 
       { data: 'classification'  }, 
       { data: 'business' }, 
       { data: 'owner' }, 
@@ -31,7 +32,7 @@ $(document).ready(function() {
           return '\
             <button type="button" class="btn btn-sm btn-icon btn-warning" data-business-permit-id="'+row.id+'" id="edit-business-permit-btn" ><i class="fa fa-pencil-alt"></i> <span class="sr-only">Edit</span></button>\
             <button type="button" class="btn btn-sm btn-icon btn-danger" data-business-permit-id="'+row.id+'" id="delete-business-permit-btn"><i class="fa fa-trash-alt"></i> <span class="sr-only">Delete</span></button>\
-            <button type="button" class="btn btn-sm btn-icon btn-primary"><i class="fa fa-print"></i> <span class="sr-only">Print</span></button>\
+            <button type="button" class="btn btn-sm btn-icon btn-primary" data-business-permit-id="'+row.id+'" id="print-business-permit-btn"><i class="fa fa-print"></i> <span class="sr-only">Print</span></button>\
           '
         }
       }, 
@@ -215,6 +216,16 @@ $(document).ready(function() {
 
 
 
+  $(document).on('click','#print-business-permit-btn', function(){ 
+     
+
+    var business_permit_id = $(this).data('businessPermitId')  
+
+    window.open(BASE_URL + "business_permit/view/" + business_permit_id , "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=150,left=300,width=600,height=505");
+
+ 
+  })
+   
   
     
 });  
