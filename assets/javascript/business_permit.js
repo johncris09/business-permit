@@ -44,11 +44,7 @@ $(document).ready(function() {
   var buttons = new $.fn.dataTable.Buttons(table, {
     buttons: [{
       extend: 'excel',
-      text: '<i class="fas fa-file-excel"></i>',
-    }, {
-      extend: 'print',
-      text: '<i class="fas fa-print"></i>',
-      autoPrint: false,
+      text: '<i class="fas fa-file-excel"></i> Excel',
     }, {
       extend: 'colvis',
       collectionLayout: 'fixed columns',
