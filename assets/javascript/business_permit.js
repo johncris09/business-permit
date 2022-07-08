@@ -25,7 +25,8 @@ $(document).ready(function() {
       { data: 'classification'  }, 
       { data: 'business' }, 
       { data: 'owner' }, 
-      { data: 'address' },   
+      { data: 'address' },  
+      { data: 'year' },   
       {
         data: 'id',
         render: function(data, type, row, meta) { 
@@ -67,6 +68,22 @@ $(document).ready(function() {
       $('button.toggle-password').html(' <i class="fa fa-eye"></i> Show')
     }
   })
+
+
+  function get_the_latest_sp_no()
+  {
+    // get the latest sp no
+    $.ajax({
+      url: BASE_URL + "business_permit/get_latest_sp_no",
+      method: "post",
+      dataType: "json",
+      success: function (data) {  
+        console.info(data) 
+        $('#sp_no').html(data)
+        $('input[name="sp_no"]').val(data)
+      }, 
+    });
+  }
    
   
 
@@ -93,21 +110,8 @@ $(document).ready(function() {
                 showCancelButton: true, 
             }).then(function(result) {
                 $("#create-new-business-permit-form")[0].reset()
-                $('select[name="classification"]').focus()
-
-                // get the latest sp no
-                $.ajax({
-                  url: BASE_URL + "business_permit/get_latest_sp_no",
-                  method: "post",
-                  dataType: "json",
-                  success: function (data) {  
-                    console.info(data) 
-                    $('#sp_no').html(data)
-                    $('input[name="sp_no"]').val(data)
-                  }, 
-                });
-
-
+                $('select[name="classification"]').focus() 
+                get_the_latest_sp_no()
                 table.ajax.reload();
                 
             });
@@ -214,6 +218,7 @@ $(document).ready(function() {
                   showCancelButton: true, 
                   confirmButtonText: "Ok"
                 })
+                get_the_latest_sp_no()
                 table.ajax.reload()
               }  
             },

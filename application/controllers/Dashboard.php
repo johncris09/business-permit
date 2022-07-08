@@ -18,7 +18,7 @@ class Dashboard extends CI_Controller {
 	} 
 
     function get_latest_sp_no()
-    {
+    {  
         $sp_no =  $this->business_permit_model->get_latest_sp_no(); 
         return $sp_no + 1;
     }
