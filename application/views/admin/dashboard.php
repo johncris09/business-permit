@@ -217,6 +217,21 @@
   <script src="<?php echo base_url(); ?>assets/vendor/datatable/js/buttons.colVis.min.js"></script>
   <script src="<?php echo base_url() ?>assets/javascript/sweetalert.js"></script>
   <script src="<?php echo base_url() ?>assets/javascript/business_permit.js"></script>  
+  <script>
+    // prevent f12 and right click event
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+            return false;
+        }
+    });
+
+    $(document).bind("contextmenu",function(e){
+        return false;
+    });
+  </script>  
+  
   
   </body>
 </html>
