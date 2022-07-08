@@ -75,7 +75,7 @@
                               <fieldset> 
                                 <div class="text-right">
                                   <label for="sp_no">SP #: <u><span id="sp_no" class="font-weight-bold h4 text-danger"><?php echo $sp_no; ?></span></u></label> 
-                                  <input type="hidden" class="form-control" value="<?php echo ($sp_no + 1) ?>" id="sp_no" name="sp_no" placeholder="SP #" required>
+                                  <input type="hidden" class="form-control" value="<?php echo $sp_no ?>" id="sp_no" name="sp_no" placeholder="SP #" required>
                                 </div>
 
 
@@ -193,6 +193,7 @@
                            <th>BUSINESS</th>
                            <th>OWNER</th>
                            <th>BUSINESS ADDRESS</th>
+                           <th>Year</th>
                            <th>Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
                       </thead>
