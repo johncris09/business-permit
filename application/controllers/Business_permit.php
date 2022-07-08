@@ -34,6 +34,7 @@ class Business_permit extends CI_Controller {
 			'business' => trim($this->input->post('business')),
 			'owner' => trim($this->input->post('owner')),
 			'address' =>   $this->input->post('address'),
+			'year' =>   date('Y'),
 		);  
         
 		$insert = $this->business_permit_model->insert($data);
