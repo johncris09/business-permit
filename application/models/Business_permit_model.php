@@ -16,7 +16,9 @@ class Business_permit_model extends CI_Model
 	
     public function get_all_business_permit()
     { 
-        return $this->db 
+        return $this->db
+            ->order_by('year', 'desc')
+            ->order_by('sp_no', 'desc')
 			->get($this->table);
     }
 
@@ -40,10 +42,14 @@ class Business_permit_model extends CI_Model
 
     public function get_latest_sp_no()
     {
-        return $this->db 
+        $sp_no =  $this->db
+            ->where('year', date('Y'))
             ->order_by('id', 'desc')
-			->get($this->table)
-            ->result_array()[0]['sp_no'];
+			->get($this->table);
+
+        if($sp_no->num_rows() > 0){
+            return $sp_no->result_array()[0]['sp_no']; 
+        } 
     }
  
  
